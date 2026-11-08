@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:listes_grilles/model/list_type.dart';
+import 'package:listes_grilles/widgets/builder.dart';
 import 'package:listes_grilles/widgets/simple_list_view.dart';
 
 class HomePage extends StatelessWidget{
@@ -16,8 +17,8 @@ class HomePage extends StatelessWidget{
   // ];
 
   final List<ListType> _lists = [
-    ListType("Simple", Icons.list, SimpleListView()),
-    ListType("Builder", Icons.settings, const Center()),
+    ListType("Simple", Icons.list, const SimpleListView()),
+    ListType("Builder", Icons.settings, BuilderWidget()), // On n'a pas mit Builder tout court pou éviter les conflit de nom car on a déja un Builder prédéfini
     ListType("Séparée", Icons.filter_list, const Center()),
     ListType("Custom", Icons.list_outlined, const Center()),
   ];
