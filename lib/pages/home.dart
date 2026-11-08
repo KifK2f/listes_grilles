@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget{
   // ];
 
   final List<ListType> _lists = [
-    ListType("Simple", Icons.list, const SimpleListView()),
+    ListType("Simple", Icons.list, SimpleListView()),
     ListType("Builder", Icons.settings, const Center()),
     ListType("Séparée", Icons.filter_list, const Center()),
     ListType("Custom", Icons.list_outlined, const Center()),
