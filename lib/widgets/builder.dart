@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:listes_grilles/model/user.dart';
+import 'package:listes_grilles/widgets/user_card.dart';
 
 import '../datas/user_datas.dart';
 
@@ -14,10 +15,11 @@ class BuilderWidget extends StatelessWidget{
       itemCount: users.length,
         itemBuilder: (BuildContext context, int index){
         User user = users[index];
-          return ListTile(
-            title: Text(user.fullName),
-            leading: CircleAvatar(radius: 15, backgroundColor: user.color, child: Text(user.initial),),
-          );
+          // return ListTile(
+          //   title: Text(user.fullName),
+          //   leading: CircleAvatar(radius: 15, backgroundColor: user.color, child: Text(user.initial),),
+          // );
+          return UserCard(user: user);
         }
     );
   }

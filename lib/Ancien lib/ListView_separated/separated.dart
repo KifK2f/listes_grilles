@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:listes_grilles/widgets/user_tile.dart';
 
-import '../datas/user_datas.dart';
-import '../model/user.dart';
+import '../../datas/user_datas.dart';
+
+// import './user_datas.dart';
 
 class Separated extends StatelessWidget {
   const Separated({super.key});

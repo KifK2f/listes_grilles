@@ -4,7 +4,7 @@ import 'package:listes_grilles/widgets/builder.dart';
 import 'package:listes_grilles/widgets/separated.dart';
 import 'package:listes_grilles/widgets/simple_list_view.dart';
 
-import '../model/user.dart';
+import './user.dart';
 
 class HomePage extends StatelessWidget{
   HomePage({super.key});

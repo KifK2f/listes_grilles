@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/user.dart';
+import './user.dart';
 
 final List<User> users = [
   User(firstName: "Jean", lastName: "Agbeko", color: Colors.white),
