@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:listes_grilles/model/list_type.dart';
 import 'package:listes_grilles/widgets/builder.dart';
+import 'package:listes_grilles/widgets/separated.dart';
 import 'package:listes_grilles/widgets/simple_list_view.dart';
+
+import '../model/user.dart';
 
 class HomePage extends StatelessWidget{
   HomePage({super.key});
@@ -18,27 +21,23 @@ class HomePage extends StatelessWidget{
 
   final List<ListType> _lists = [
     ListType("Simple", Icons.list, const SimpleListView()),
-    ListType("Builder", Icons.settings, BuilderWidget()), // On n'a pas mit Builder tout court pou éviter les conflit de nom car on a déja un Builder prédéfini
-    ListType("Séparée", Icons.filter_list, const Center()),
+    ListType("Builder", Icons.settings, const BuilderWidget()), // On n'a pas mit Builder tout court pou éviter les conflit de nom car on a déja un Builder prédéfini
+    ListType("Séparée", Icons.filter_list, const Separated()),
     ListType("Custom", Icons.list_outlined, const Center()),
   ];
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-  //       title: const Text("Liste et Grilles"),
-  //       centerTitle: true,
-  //     ),
-  // body: SimpleListView(widgets: _children,)
-  //     body: SingleChildScrollView(
-  //         child: Column(
-  //           children: _children,
-  //         ),
-  //     )
-  //   );
-  // }
+  final List<User> users = [
+    User(firstName: "Jean", lastName: "Agbeko", color: Colors.white),
+    User(firstName: "Marie", lastName: "Amegah", color: Colors.blue),
+    User(firstName: "Pierre", lastName: "Kossi", color: Colors.red),
+    User(firstName: "Paul", lastName: "Agbodjan", color: Colors.green),
+    User(firstName: "Sophie", lastName: "Amouzou", color: Colors.yellow),
+    User(firstName: "Michel", lastName: "Akakpo", color: Colors.orange),
+    User(firstName: "Claire", lastName: "Adzaho", color: Colors.purple),
+    User(firstName: "André", lastName: "Togbui", color: Colors.pink),
+    User(firstName: "Émilie", lastName: "Lawson", color: Colors.cyan),
+    User(firstName: "François", lastName: "Dossou", color: Colors.teal),
+  ];
 
   @override
   Widget build(BuildContext context) {
