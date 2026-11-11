@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../model/user.dart';
 
-final List<User> users = [
+// final List<User> users = [
+List<User> users = [
   User(firstName: "Jean", lastName: "Agbeko", color: Colors.white),
   User(firstName: "Marie", lastName: "Amegah", color: Colors.blue),
   User(firstName: "Pierre", lastName: "Kossi", color: Colors.red),
