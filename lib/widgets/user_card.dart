@@ -14,6 +14,7 @@ class UserCard extends StatelessWidget{
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CircleAvatar(
               radius: 34,

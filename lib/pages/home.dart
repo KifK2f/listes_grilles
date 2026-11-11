@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:listes_grilles/model/list_type.dart';
 import 'package:listes_grilles/pages/my_tab.dart';
+import 'package:listes_grilles/pages/orientation_page.dart';
 import 'package:listes_grilles/widgets/grid/grid_builder.dart';
+import 'package:listes_grilles/widgets/grid/grid_count.dart';
+import 'package:listes_grilles/widgets/grid/grid_custom.dart';
+import 'package:listes_grilles/widgets/grid/grid_extent.dart';
 import 'package:listes_grilles/widgets/grid/grid_simple.dart';
 import 'package:listes_grilles/widgets/list/builder.dart';
 import 'package:listes_grilles/widgets/list/list_custom.dart';
@@ -23,13 +28,16 @@ class HomePage extends StatelessWidget{
   final List<ListType> _grids = [
     ListType("Simple", Icons.list, const GridSimple()),
     ListType("Builder", Icons.settings, const GridBuilder()),
-    ListType("Count", Icons.filter_list, const Center()),
-    ListType("Extent", Icons.list_outlined, const Center()),
-    ListType("Custom", Icons.list_outlined, const Center()),
+    ListType("Count", Icons.filter_list, const GridCount()),
+    ListType("Extent", Icons.list_outlined, const GridExtent()),
+    ListType("Custom", Icons.list_outlined, const GridCustom()),
   ];
 
   @override
   Widget build(BuildContext context) {
+    //On peut le faire pour toute l'application ou pour une page spécifique
+    // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]); // Bloquer l'orienttaion sur portrait UP
+    // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown]); // Bloquer l'orienttaion sur portrait inversé
     return Scaffold(
       appBar: AppBar(
         title: const Text("Liste et Grilles"),
@@ -44,6 +52,10 @@ class HomePage extends StatelessWidget{
                 child: const Text("Les Listes")),
             TextButton(onPressed: (() => toNext("Grille ", _grids, context))
                 , child: const Text("Les Grilles")),
+
+            TextButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const DeviceOrientationPage()));
+            }, child: const Text("Orientation"))
           ],
         ),
       ),

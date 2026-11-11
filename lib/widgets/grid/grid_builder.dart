@@ -12,8 +12,10 @@ class GridBuilder extends  StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2
+          crossAxisCount: 3,
+          childAspectRatio: 1.5
       ),
+      itemCount: users.length, // limite le builder au nombre réel d'éléments
       itemBuilder: (context, index){
         return UserCard(user: users[index]);
       },
