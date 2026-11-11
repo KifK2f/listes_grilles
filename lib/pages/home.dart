@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:listes_grilles/model/list_type.dart';
 import 'package:listes_grilles/pages/my_tab.dart';
+import 'package:listes_grilles/widgets/grid/grid_builder.dart';
 import 'package:listes_grilles/widgets/grid/grid_simple.dart';
 import 'package:listes_grilles/widgets/list/builder.dart';
 import 'package:listes_grilles/widgets/list/list_custom.dart';
@@ -21,7 +22,7 @@ class HomePage extends StatelessWidget{
 
   final List<ListType> _grids = [
     ListType("Simple", Icons.list, const GridSimple()),
-    ListType("Builder", Icons.settings, const Center()), // On n'a pas mit Builder tout court pou éviter les conflit de nom car on a déja un Builder prédéfini
+    ListType("Builder", Icons.settings, const GridBuilder()),
     ListType("Count", Icons.filter_list, const Center()),
     ListType("Extent", Icons.list_outlined, const Center()),
     ListType("Custom", Icons.list_outlined, const Center()),
