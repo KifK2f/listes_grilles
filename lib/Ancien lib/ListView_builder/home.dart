@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:listes_grilles/model/list_type.dart';
-import 'package:listes_grilles/widgets/builder.dart';
-import 'package:listes_grilles/widgets/simple_list_view.dart';
+import 'package:listes_grilles/widgets/list/builder.dart';
+import 'package:listes_grilles/widgets/list/simple_list_view.dart';
 
 class HomePage extends StatelessWidget{
   HomePage({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:listes_grilles/model/user.dart';
 import 'package:listes_grilles/widgets/user_card.dart';
 
-import '../datas/user_datas.dart';
+import '../../datas/user_datas.dart';
 
 class BuilderWidget extends StatelessWidget{
   const BuilderWidget({super.key});

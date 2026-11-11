@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:listes_grilles/model/list_type.dart';
-import 'package:listes_grilles/widgets/builder.dart';
-import 'package:listes_grilles/widgets/separated.dart';
-import 'package:listes_grilles/widgets/simple_list_view.dart';
+import 'package:listes_grilles/widgets/list/builder.dart';
+import 'package:listes_grilles/widgets/list/simple_list_view.dart';
 
+import '../../widgets/list/separated.dart';
 import './user.dart';
 
 class HomePage extends StatelessWidget{

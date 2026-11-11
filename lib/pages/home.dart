@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:listes_grilles/model/list_type.dart';
-import 'package:listes_grilles/widgets/builder.dart';
-import 'package:listes_grilles/widgets/list_custom.dart';
-import 'package:listes_grilles/widgets/separated.dart';
-import 'package:listes_grilles/widgets/simple_list_view.dart';
+import 'package:listes_grilles/pages/my_tab.dart';
+import 'package:listes_grilles/widgets/grid/grid_simple.dart';
+import 'package:listes_grilles/widgets/list/builder.dart';
+import 'package:listes_grilles/widgets/list/list_custom.dart';
+import 'package:listes_grilles/widgets/list/separated.dart';
+import 'package:listes_grilles/widgets/list/simple_list_view.dart';
 
 import '../model/user.dart';
 
@@ -17,31 +19,38 @@ class HomePage extends StatelessWidget{
     ListType("Custom", Icons.list_outlined, const ListCustom()),
   ];
 
-  final List<User> users = [
-    User(firstName: "Jean", lastName: "Agbeko", color: Colors.white),
-    User(firstName: "Marie", lastName: "Amegah", color: Colors.blue),
-    User(firstName: "Pierre", lastName: "Kossi", color: Colors.red),
-    User(firstName: "Paul", lastName: "Agbodjan", color: Colors.green),
-    User(firstName: "Sophie", lastName: "Amouzou", color: Colors.yellow),
-    User(firstName: "Michel", lastName: "Akakpo", color: Colors.orange),
-    User(firstName: "Claire", lastName: "Adzaho", color: Colors.purple),
-    User(firstName: "André", lastName: "Togbui", color: Colors.pink),
-    User(firstName: "Émilie", lastName: "Lawson", color: Colors.cyan),
-    User(firstName: "François", lastName: "Dossou", color: Colors.teal),
+  final List<ListType> _grids = [
+    ListType("Simple", Icons.list, const GridSimple()),
+    ListType("Builder", Icons.settings, const Center()), // On n'a pas mit Builder tout court pou éviter les conflit de nom car on a déja un Builder prédéfini
+    ListType("Count", Icons.filter_list, const Center()),
+    ListType("Extent", Icons.list_outlined, const Center()),
+    ListType("Custom", Icons.list_outlined, const Center()),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(length: _lists.length, 
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Listes est Grilles"),
-          centerTitle: true,
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          bottom: TabBar(tabs: _lists.map((item) => item.tab).toList()),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Liste et Grilles"),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextButton(onPressed: (() => toNext("Liste ", _lists, context)),
+                child: const Text("Les Listes")),
+            TextButton(onPressed: (() => toNext("Grille ", _grids, context))
+                , child: const Text("Les Grilles")),
+          ],
         ),
-        body: TabBarView(children: _lists.map((item) => item.list).toList()),
-      )
+      ),
     );
+  }
+  toNext(String name, List<ListType> type, BuildContext context){
+    Navigator.push(context, MaterialPageRoute(builder: (context){
+      return MyTab(name, type);
+    }));
   }
 }
